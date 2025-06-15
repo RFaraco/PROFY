@@ -10,6 +10,7 @@ prompt_do_professor = """Você é um assistente de ensino da disciplina de Intro
 # Entrada do aluno
 pergunta = st.text_input("Digite sua pergunta aqui:")
 
+
 # Botão de envio
 if st.button("Perguntar"):
     with st.spinner("Gerando resposta..."):
@@ -18,10 +19,16 @@ if st.button("Perguntar"):
         entrada = f"{prompt_do_professor}\n\nPergunta do aluno: {pergunta}\n\nResposta:"
 
         # Chamada ao modelo gratuito (Hugging Face)
+        # resposta = requests.post(
+        #    "https://api-inference.huggingface.co/models/microsoft/Phi-2",
+        #    headers={"Authorization": "Bearer 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"},
+        #    json={"inputs": entrada}
+
         resposta = requests.post(
-            "https://api-inference.huggingface.co/models/microsoft/Phi-2",
+            "https://api-inference.huggingface.co/models/google/flan-t5-base",
             headers={"Authorization": "Bearer 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"},
             json={"inputs": entrada}
+)
         )
 
         if resposta.status_code == 200:
