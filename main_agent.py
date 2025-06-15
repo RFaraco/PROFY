@@ -15,14 +15,14 @@ Não responda perguntas que não tenham relação com o conteúdo da disciplina.
 pergunta = st.text_input("Digite sua pergunta aqui:")
 
 # Seu token Hugging Face
-api_token = st.secrets["HUGGINGFACE_API_TOKEN"]
+api_token = st.secrets["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"]
 
 def responder(pergunta):
     entrada = f"{prompt_do_professor}\n\nPergunta do aluno: {pergunta}\n\nResposta:"
     
     response = requests.post(
         "https://api-inference.huggingface.co/models/google/flan-t5-base",
-        headers={"Authorization": f"Bearer {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}"},
+        headers={"Authorization": f"Bearer {api_token}"},
         json={"inputs": entrada}
     )
 
