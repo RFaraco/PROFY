@@ -20,7 +20,7 @@ if st.button("Perguntar"):
         # Chamada ao modelo gratuito (Hugging Face)
         resposta = requests.post(
             "https://api-inference.huggingface.co/models/microsoft/Phi-2",
-            headers={"Authorization": "Bearer SUA_API_HUGGINGFACE"},
+            headers={"Authorization": "Bearer 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"},
             json={"inputs": entrada}
         )
 
