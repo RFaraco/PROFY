@@ -15,7 +15,7 @@ Não responda perguntas que não tenham relação com o conteúdo da disciplina.
 pergunta = st.text_input("Digite sua pergunta aqui:")
 
 # Seu token Hugging Face
-api_token = st.secrets["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"]
+api_token = st.secrets["HUGGINGFACE_API_TOKEN"]
 
 def responder(pergunta):
     entrada = f"{prompt_do_professor}\n\nPergunta do aluno: {pergunta}\n\nResposta:"
