@@ -27,10 +27,8 @@ if st.button("Perguntar"):
         resposta = requests.post(
             "https://api-inference.huggingface.co/models/google/flan-t5-base",
             headers={"Authorization": "Bearer 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"},
-            json={"inputs": entrada}
-)
-        )
-
+            json={"inputs": entrada})
+        
         if resposta.status_code == 200:
             texto_gerado = resposta.json()[0]['generated_text']
             st.write(texto_gerado.split("Resposta:")[-1])
